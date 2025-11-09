@@ -1,5 +1,13 @@
 import sys
-s = sys.stdin.read().strip()
-n = int(s)
-ans = [str(d) for d in range(1, n + 1) if n % d == 0]
-print(" ".join(ans))
+from divisors import get_divisors
+
+def run():
+    s = sys.stdin.read().strip()
+    if not s:
+        return
+    n = int(s)
+    ans = get_divisors(n)
+    print(" ".join(map(str, ans)))
+
+if __name__ == "__main__":
+    run()
